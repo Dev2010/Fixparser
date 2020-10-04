@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack id="100" approved="2009-04-28T00:00:00" desc="FX Spot and Forward Matching" tempIntermediatePath="../EP99/">
+		<Fields>
+			<Inserts>
+				<Fields Tag="1628">
+					<FieldName>TriggerScope</FieldName>
+					<Type>Int</Type>
+					<Desc>Defines the scope of TriggerAction(1101) when it is set to &quot;cancel&quot; (3).</Desc>
+					<AbbrName>TrgrScope</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1629">
+					<FieldName>ExposureDuration</FieldName>
+					<Type>Int</Type>
+					<Desc>This is the time in seconds of a &quot;Good for Time&quot; (GFT) TimeInForce.
+
+Positive integer value which represents the time is seconds in which the new order remains active in the market before it is automatically cancelled (e.g. expired).
+
+Bi-lateral agreements will dictate the maximum value of this field. It is assumed that most systems will impose a max limit of 86,400 seconds (i.e. 24 hours).</Desc>
+					<AbbrName>ExpsreDur</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1630">
+					<FieldName>NoLimitAmts</FieldName>
+					<Type>NumInGroup</Type>
+					<Desc>The number of limit amount entries.</Desc>
+					<AbbrName>NoLmtAmts</AbbrName>
+					<NotReqXML>1</NotReqXML>
+				</Fields>
+				<Fields Tag="1631">
+					<FieldName>LimitAmtType</FieldName>
+					<Type>Int</Type>
+					<Desc>Identifies the type of limit amount expressed in LastLimitAmt(1632) and LimitAmtRemaining(1633).</Desc>
+					<AbbrName>LmtAmtTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<UnionDataType>Reserved100Plus</UnionDataType>
+				</Fields>
+				<Fields Tag="1632">
+					<FieldName>LastLimitAmt</FieldName>
+					<Type>Amt</Type>
+					<Desc>The amount that has been drawn down against the counterparty for a given trade.  The type of limit is specified in LimitAmtType(1631).
+Bilateral agreements dictate the units and maximum value of this field.</Desc>
+					<AbbrName>LastLmtAmt</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1633">
+					<FieldName>LimitAmtRemaining</FieldName>
+					<Type>Amt</Type>
+					<Desc>The remaining limit amount available between the counterparties.  The type of limit is specified in LimitAmtType(1631).
+Bilateral agreements dictate the units and maximum value of this field.</Desc>
+					<AbbrName>LmtAmtRnmg</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1634">
+					<FieldName>LimitAmtCurrency</FieldName>
+					<Type>Currency</Type>
+					<Desc>Indicates the currency that the limit amount is specified in.  See Currency(15) for additional description and valid values.</Desc>
+					<AbbrName>LmtAmtCcy</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Deletes>
+				<Enums Enum="5" Tag="1358"/>
+				<Enums Enum="6" Tag="1358"/>
+			</Deletes>
+			<Inserts>
+				<Enums Enum="0" Tag="1628">
+					<Sort>0</Sort>
+					<Description>This order (default)</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1628">
+					<Sort>1</Sort>
+					<Description>Other order (use RefID)</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1628">
+					<Sort>2</Sort>
+					<Description>All other orders for the given security</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1628">
+					<Sort>3</Sort>
+					<Description>All other orders for the given security and price</Description>
+				</Enums>
+				<Enums Enum="4" Tag="1628">
+					<Sort>4</Sort>
+					<Description>All other orders for the given security and side</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1628">
+					<Sort>5</Sort>
+					<Description>All other orders for the given security, price and side</Description>
+				</Enums>
+				<Enums Enum="A" Tag="59">
+					<Sort>11</Sort>
+					<Description>Good for Time (GFT)</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1385">
+					<Sort>5</Sort>
+					<Description>Bid and Offer</Description>
+				</Enums>
+				<Enums Enum="6" Tag="1385">
+					<Sort>6</Sort>
+					<Description>Bid and Offer OCO</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1100">
+					<Sort>5</Sort>
+					<Description>On Order Entry or order modification entry</Description>
+				</Enums>
+				<Enums Enum="12" Tag="378">
+					<Sort>12</Sort>
+					<Description>Cancel On Connection Loss</Description>
+				</Enums>
+				<Enums Enum="13" Tag="378">
+					<Sort>13</Sort>
+					<Description>Cancel On Logout</Description>
+				</Enums>
+				<Enums Enum="20" Tag="423">
+					<Sort>19</Sort>
+					<Description>Normal rate representation (e.g. FX rate)</Description>
+				</Enums>
+				<Enums Enum="21" Tag="423">
+					<Sort>20</Sort>
+					<Description>Inverse rate representation (e.g. FX rate)</Description>
+				</Enums>
+				<Enums Enum="4" Tag="1164">
+					<Sort>4</Sort>
+					<Description>Buyer&apos;s settlement instructions</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1164">
+					<Sort>5</Sort>
+					<Description>Seller&apos;s settlement instructions</Description>
+				</Enums>
+				<Enums Enum="86" Tag="452">
+					<Sort>86</Sort>
+					<Description>CLS Member Bank</Description>
+				</Enums>
+				<Enums Enum="0" Tag="1631">
+					<Sort>0</Sort>
+					<Description>Credit limit</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1631">
+					<Sort>1</Sort>
+					<Description>Gross position limit</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1631">
+					<Sort>2</Sort>
+					<Description>Net position limit</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1631">
+					<Sort>3</Sort>
+					<Description>Risk exposure limit</Description>
+				</Enums>
+				<Enums Enum="4" Tag="1631">
+					<Sort>4</Sort>
+					<Description>Long position limit</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1631">
+					<Sort>5</Sort>
+					<Description>Short position limit</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<Components>
+			<Inserts>
+				<Components MsgID="1065">
+					<ComponentName>LimitAmts</ComponentName>
+					<ComponentType>BlockRepeating</ComponentType>
+					<Category>Common</Category>
+					<AbbrName>LmtAmts</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Components>
+			</Inserts>
+		</Components>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="1030" TagText="1628">
+					<Indent>0</Indent>
+					<Position>1.11</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TriggerAction(1101)=3 (Cancel).</Description>
+				</MsgContents>
+				<MsgContents MsgID="14" TagText="1629">
+					<Indent>0</Indent>
+					<Position>61.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="17" TagText="1629">
+					<Indent>0</Indent>
+					<Position>66.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="52" TagText="1629">
+					<Indent>0</Indent>
+					<Position>79.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="53" TagText="1629">
+					<Indent>0</Indent>
+					<Position>83.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="61" TagText="1629">
+					<Indent>0</Indent>
+					<Position>76.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="62" TagText="1629">
+					<Indent>0</Indent>
+					<Position>79.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="9" TagText="1629">
+					<Indent>0</Indent>
+					<Position>69.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="2030" TagText="1629">
+					<Indent>1</Indent>
+					<Position>63.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="2031" TagText="1629">
+					<Indent>1</Indent>
+					<Position>20.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="2032" TagText="1629">
+					<Indent>1</Indent>
+					<Position>31.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when TimeInForce(59)=10 (Good for Time)</Description>
+				</MsgContents>
+				<MsgContents MsgID="2143" TagText="1629">
+					<Indent>0</Indent>
+					<Position>18.1</Position>
+					<Reqd>0</Reqd>
+					<Description/>
+				</MsgContents>
+				<MsgContents MsgID="9" TagText="1385">
+					<Indent>0</Indent>
+					<Position>130.1</Position>
+					<Reqd>0</Reqd>
+					<Description>For contingency orders, the type of contingency as specified in the order.</Description>
+				</MsgContents>
+				<MsgContents MsgID="1065" TagText="1630">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>0</Reqd>
+					<Description>Number of limit amount occurences.</Description>
+				</MsgContents>
+				<MsgContents MsgID="1065" TagText="1631">
+					<Indent>1</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when NoLimitAmts &gt; 0</Description>
+				</MsgContents>
+				<MsgContents MsgID="1065" TagText="1632">
+					<Indent>1</Indent>
+					<Position>3</Position>
+					<Reqd>0</Reqd>
+					<Description>Either LastLimitAmt(1632) or LimitAmtRemaining(1633) must be specified when NoLimitAmts &gt; 0</Description>
+				</MsgContents>
+				<MsgContents MsgID="1065" TagText="1633">
+					<Indent>1</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+					<Description>Either LastLimitAmt(1632) or LimitAmtRemaining(1633) must be specified when NoLimitAmts &gt; 0</Description>
+				</MsgContents>
+				<MsgContents MsgID="1065" TagText="1634">
+					<Indent>1</Indent>
+					<Position>5</Position>
+					<Reqd>0</Reqd>
+					<Description/>
+				</MsgContents>
+				<MsgContents MsgID="9" TagText="LimitAmts">
+					<Indent>0</Indent>
+					<Position>85.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Insert here the set of &quot;LimitAmts&quot; fields defined in &quot;Common Components&quot;</Description>
+				</MsgContents>
+				<MsgContents MsgID="2061" TagText="LimitAmts">
+					<Indent>1</Indent>
+					<Position>11.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Insert here the set of &quot;LimitAmts&quot; fields defined in &quot;Common Components&quot;</Description>
+				</MsgContents>
+				<MsgContents MsgID="2094" TagText="LimitAmts">
+					<Indent>1</Indent>
+					<Position>11.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Insert here the set of &quot;LimitAmts&quot; field defined in &quot;Common Components&quot;</Description>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

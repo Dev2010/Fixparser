@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack approved="2009-07-30T00:00:00" desc="OCC Extensions for Large Options Positions Reporting" id="103" tempIntermediatePath="../EP102/">
+		<Abbreviations>
+			<Inserts>
+				<Abbreviations>
+					<Abbreviation>Cvrd</Abbreviation>
+					<Term>Covered</Term>
+				</Abbreviations>
+			</Inserts>
+		</Abbreviations>
+		<Fields>
+			<Updates>
+				<Fields Tag="1328">
+					<Desc>Identifies the reason for rejection.</Desc>
+				</Fields>
+				<Fields Tag="715">
+					<Desc>Identifies the Business Date</Desc>
+				</Fields>
+			</Updates>
+			<Inserts>
+				<Fields Tag="1647">
+					<FieldName>NoRelatedInstruments</FieldName>
+					<Type>NumInGroup</Type>
+					<Desc>Number of related instruments</Desc>
+					<NotReqXML>1</NotReqXML>
+				</Fields>
+				<Fields Tag="1648">
+					<FieldName>RelatedInstrumentType</FieldName>
+					<Type>int</Type>
+					<Desc>The type of instrument relationship</Desc>
+					<AbbrName>InstrmtTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1649">
+					<FieldName>RelatedSymbol</FieldName>
+					<Type>String</Type>
+					<Desc>Instrument being used to offset the Option Instrument </Desc>
+					<AbbrName>Sym</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1650">
+					<FieldName>RelatedSecurityID</FieldName>
+					<Type>String</Type>
+					<Desc>Security identifier value of RelatedSecurityIDSource (1651) type (e.g. CUSIP, SEDOL, ISIN, etc). Requires RelatedSecurityIDSource.</Desc>
+					<AbbrName>ID</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1651">
+					<FieldName>RelatedSecurityIDSource</FieldName>
+					<Type>String</Type>
+					<Desc>Identifies class or source of the RelatedSecurityID (1650) value. Required if RelatedSecurityID is specified.
+100+ are reserved for private security identifications</Desc>
+					<AbbrName>Src</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<UsesEnumsFromTag>22</UsesEnumsFromTag>
+					<UnionDataType>Reserved100Plus</UnionDataType>
+				</Fields>
+				<Fields Tag="1652">
+					<FieldName>RelatedSecurityType</FieldName>
+					<Type>String</Type>
+					<Desc>Security Type of the Related Instrument</Desc>
+					<AbbrName>SecTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1653">
+					<FieldName>RelatedMaturityMonthYear</FieldName>
+					<Type>MonthYear</Type>
+					<Desc>Expiration Date for the Related Instrument contract</Desc>
+					<AbbrName>MMY</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1654">
+					<FieldName>CoveredQty</FieldName>
+					<Type>Qty</Type>
+					<Desc>Used in the Position Quantity component to describe the portion of the Short Contract Quantity that is considered covered.</Desc>
+					<AbbrName>CvrdQty</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Updates>
+				<Enums Enum="33" Tag="803">
+					<Sort>32</Sort>
+				</Enums>
+			</Updates>
+			<Inserts>
+				<Enums Enum="7" Tag="709">
+					<Sort>7</Sort>
+					<Description>Large Positions Reporting Submission</Description>
+				</Enums>
+				<Enums Enum="8" Tag="724">
+					<Sort>9</Sort>
+					<Description>Large Positions Reporting</Description>
+				</Enums>
+				<Enums Enum="9" Tag="724">
+					<Sort>10</Sort>
+					<Description>Exercise Position Reporting Submission</Description>
+				</Enums>
+				<Enums Enum="10" Tag="724">
+					<Sort>11</Sort>
+					<Description>Position Limit Reporting Submission</Description>
+				</Enums>
+				<Enums Enum="87" Tag="452">
+					<Sort>87</Sort>
+					<Description>In Concert Group</Description>
+				</Enums>
+				<Enums Enum="88" Tag="452">
+					<Sort>88</Sort>
+					<Description>In Concert Controlling Entity</Description>
+				</Enums>
+				<Enums Enum="89" Tag="452">
+					<Sort>89</Sort>
+					<Description>Large Positions Reporting Account</Description>
+				</Enums>
+				<Enums Enum="34" Tag="803">
+					<Sort>33</Sort>
+					<Description>Address City</Description>
+				</Enums>
+				<Enums Enum="35" Tag="803">
+					<Sort>34</Sort>
+					<Description>Address State/Province</Description>
+				</Enums>
+				<Enums Enum="36" Tag="803">
+					<Sort>35</Sort>
+					<Description>Address Postal Code</Description>
+				</Enums>
+				<Enums Enum="37" Tag="803">
+					<Sort>36</Sort>
+					<Description>Address Street</Description>
+				</Enums>
+				<Enums Enum="38" Tag="803">
+					<Sort>37</Sort>
+					<Description>Address Country (ISO country code)</Description>
+				</Enums>
+				<Enums Enum="39" Tag="803">
+					<Sort>38</Sort>
+					<Description>ISO country code</Description>
+				</Enums>
+				<Enums Enum="J" Tag="447">
+					<Group>For PartyRole = &quot;InvestorID&quot; and for CIV</Group>
+					<Sort>6</Sort>
+					<Description>Tax ID</Description>
+				</Enums>
+				<Enums Enum="ITD" Tag="703">
+					<Sort>29</Sort>
+					<Description>Intraday Qty</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1648">
+					<Sort>1</Sort>
+					<Description>&quot;hedges for&quot; instrument</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<Components>
+			<Inserts>
+				<Components MsgID="1066">
+					<ComponentName>RelatedInstrumentGrp</ComponentName>
+					<ComponentType>BlockRepeating</ComponentType>
+					<Category>Common </Category>
+					<AbbrName>ReltdInstrmt</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Components>
+			</Inserts>
+		</Components>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="1066" TagText="1647">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1648">
+					<Indent>1</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when NoRelatedInstruments &gt; 0</Description>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1649">
+					<Indent>1</Indent>
+					<Position>3</Position>
+					<Reqd>0</Reqd>
+					<Description>Conditionally required when NoRelatedInstruments &gt; 0. For RelatedInstrumentType = 1 this would be the instrument being used to offset the Option Instrument.</Description>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1650">
+					<Indent>1</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1651">
+					<Indent>1</Indent>
+					<Position>5</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1652">
+					<Indent>1</Indent>
+					<Position>6</Position>
+					<Reqd>0</Reqd>
+					<Description>Security Type of the related Instrument</Description>
+				</MsgContents>
+				<MsgContents MsgID="1066" TagText="1653">
+					<Indent>1</Indent>
+					<Position>7</Position>
+					<Reqd>0</Reqd>
+					<Description>Expiration Date for the related Instrument contract</Description>
+				</MsgContents>
+				<MsgContents MsgID="1015" TagText="1654">
+					<Indent>1</Indent>
+					<Position>4.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Short quantity that is considered covered, e.g. used for short option position</Description>
+				</MsgContents>
+				<MsgContents MsgID="71" TagText="RelatedInstrumentGrp">
+					<Indent>0</Indent>
+					<Position>16.1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="75" TagText="RelatedInstrumentGrp">
+					<Indent>0</Indent>
+					<Position>22</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="72" TagText="1328">
+					<Indent>0</Indent>
+					<Position>9.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Used by CCP to send a reason for rejection</Description>
+				</MsgContents>
+				<MsgContents MsgID="72" TagText="RelatedInstrumentGrp">
+					<Indent>0</Indent>
+					<Position>19</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="48" TagText="715">
+					<Indent>0</Indent>
+					<Position>2.1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

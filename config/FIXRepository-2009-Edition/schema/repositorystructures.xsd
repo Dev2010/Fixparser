@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 2 (x64) (http://www.altova.com) by Philip Oliver (Oliver Computing LLC) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:od="urn:schemas-microsoft-com:officedata" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="repositorytypes.xsd"/>
+	<xs:attributeGroup name="ContainerLevelRevisionAttribGrp">
+		<xs:attribute name="version" type="Version_t"/>
+		<xs:attribute name="latestEP" type="EP_t"/>
+		<xs:attribute name="generated" type="xs:dateTime"/>
+		<xs:attribute name="copyright" type="xs:string"/>
+		<xs:attribute name="edition" type="xs:string"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="EntityLevelRevisionAttribGrp">
+		<xs:attribute name="Added" type="Version_t"/>
+		<xs:attribute name="AddedEP" type="EP_t"/>
+		<xs:attribute name="Deprecated" type="Version_t"/>
+		<xs:attribute name="DeprecatedEP" type="EP_t"/>
+		<xs:attribute name="Removed" type="Version_t"/>
+		<xs:attribute name="RemovedEP" type="EP_t"/>
+		<xs:attribute name="Updated" type="Version_t"/>
+		<xs:attribute name="UpdatedEP" type="EP_t"/>
+	</xs:attributeGroup>
+	<xs:complexType name="Abbreviations_cs_t">
+		<xs:sequence>
+			<xs:element name="Term" type="Term_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Abbreviation" type="Abbreviation_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Version" type="Version_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="EP" type="EP_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Usage" type="Usage_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="Categories_cs_t">
+		<xs:sequence>
+			<xs:element name="Category" type="Category_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="FIXMLFileName" type="Name_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="NotReqXML" type="xs:boolean" od:jetType="yesno" od:sqlSType="bit"/>
+			<xs:element name="GenerateImplFile" type="xs:boolean" od:jetType="yesno" od:sqlSType="bit"/>
+			<xs:element name="ComponentType" od:jetType="text" od:sqlSType="nvarchar">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Field"/>
+						<xs:enumeration value="Message"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Section" type="Section_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Volume" type="Volume_t" minOccurs="0" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="IncludeFile" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="components"/>
+						<xs:enumeration value="fields"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Components_cs_t">
+		<xs:sequence>
+			<xs:element name="ComponentName" type="ComponentName_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="ComponentType" type="ComponentType_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Category" type="Category_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="MsgID" type="CompID_t" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="Description" type="Description_t" minOccurs="0" od:jetType="memo" od:sqlSType="ntext"/>
+			<xs:element name="AbbrName" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="NotReqXML" type="xs:boolean" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="Enums_cs_t">
+		<xs:sequence>
+			<xs:element name="Group" type="Group_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Sort" type="xs:int" minOccurs="0" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="Tag" type="Tag_t" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="Enum" type="Enumeration_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Description" type="Description_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Definition" type="Definition_t" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="Fields_cs_t">
+		<xs:sequence>
+			<xs:element name="Tag" type="Tag_t" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="FieldName" type="Name_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Type" type="Datatype_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Desc" type="Description_t" minOccurs="0" od:jetType="memo" od:sqlSType="ntext"/>
+			<xs:element name="LenRefers" type="xs:int" minOccurs="0" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="AbbrName" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="OverrideXMLName" type="OverrideXMLName_t" minOccurs="0"/>
+			<xs:element name="BaseCatagory" type="Category_t" minOccurs="0" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="BaseCatagoryXMLName" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="NotReqXML" type="xs:boolean" minOccurs="0" od:jetType="yesno" od:sqlSType="bit"/>
+			<xs:element name="UsesEnumsFromTag" type="Tag_t" minOccurs="0" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="UnionDataType" type="UnionDataType_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+		</xs:sequence>
+		<xs:attribute name="replaced" type="Version_t"/>
+		<xs:attribute name="replacedEP" type="EP_t"/>
+		<xs:attribute name="replacedByField" type="xs:int"/>
+		<xs:attribute name="notUsed" type="xs:boolean"/>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="MsgType_cs_t">
+		<xs:sequence>
+			<xs:element name="MsgType" type="MsgType_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="MessageName" type="Name_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="ComponentType" type="Name_t" fixed="Message" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Category" type="Category_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="MsgID" type="MsgID_t" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="Section" type="Section_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="AbbrName" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="OverrideAbbr" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Volume" type="VolumeName_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="NotReqXML" type="xs:boolean" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Description" type="Description_t" minOccurs="0" od:jetType="memo" od:sqlSType="ntext"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="MsgContents_cs_t">
+		<xs:sequence>
+			<xs:element name="Indent" type="xs:nonNegativeInteger" od:jetType="longinteger" od:sqlSType="int"/>
+			<xs:element name="Position" type="xs:decimal" od:jetType="decimal" od:sqlSType="decimal"/>
+			<xs:element name="TagText" type="TagText_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Reqd" type="xs:boolean" od:jetType="yesno" od:sqlSType="bit" od:nonNullable="yes"/>
+			<xs:element name="Description" type="Description_t" minOccurs="0" od:jetType="memo" od:sqlSType="ntext"/>
+			<xs:element name="MsgID" type="MsgOrCompID_t" od:jetType="longinteger" od:sqlSType="int"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="EntityLevelRevisionAttribGrp"/>
+	</xs:complexType>
+	<xs:complexType name="Sections_cs_t">
+		<xs:sequence>
+			<xs:element name="Section" type="Section_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="DisplayName" type="Name_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="DisplayOrder" type="xs:int" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Desc" type="Description_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="Volume" type="Volume_t" od:jetType="text" od:sqlSType="nvarchar"/>
+			<xs:element name="NotReqXML" type="xs:boolean" od:jetType="yesno" od:sqlSType="bit"/>
+			<xs:element name="FIXMLFileName" type="Name_t" minOccurs="0" od:jetType="text" od:sqlSType="nvarchar"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

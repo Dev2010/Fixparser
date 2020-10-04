@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns="http://www.fixprotocol.org/extensionpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="FIX.5.0SP2">
+	<extensionPack approved="2009-09-28T00:00:00" desc="Canadian Market Regulation Feed V2" id="104" tempIntermediatePath="../EP103/IntermediateRepository.xml">
+		<Abbreviations>
+			<Inserts>
+				<Abbreviations>
+					<Abbreviation>Actvty</Abbreviation>
+					<Term>Activity</Term>
+				</Abbreviations>
+				<Abbreviations>
+					<Abbreviation>Mkr</Abbreviation>
+					<Term>Maker</Term>
+				</Abbreviations>
+			</Inserts>
+		</Abbreviations>
+		<Fields>
+			<Inserts>
+				<Fields Tag="1655">
+					<FieldName>MarketMakerActivity</FieldName>
+					<Type>int</Type>
+					<Desc>Indicates market maker participation in security.</Desc>
+					<AbbrName>MktMkrActvty</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Inserts>
+				<Enums Enum="15" Tag="378">
+					<Sort>15</Sort>
+					<Description>Canceled, Trade Price Violation</Description>
+				</Enums>
+				<Enums Enum="16" Tag="378">
+					<Sort>16</Sort>
+					<Description>Canceled, Cross Imbalance</Description>
+				</Enums>
+				<Enums Enum="56" Tag="828">
+					<Sort>56</Sort>
+					<Description>Opening Trade</Description>
+				</Enums>
+				<Enums Enum="32" Tag="871">
+					<Sort>33</Sort>
+					<Description>Minimum Guaranteed Fill Status</Description>
+				</Enums>
+				<Enums Enum="0" Tag="1655">
+					<Sort>0</Sort>
+					<Description>No participation</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1655">
+					<Sort>1</Sort>
+					<Description>Buy participation</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1655">
+					<Sort>2</Sort>
+					<Description>Sell participation</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1655">
+					<Sort>3</Sort>
+					<Description>Both buy and sell participation</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="39" TagText="1655">
+					<Indent>0</Indent>
+					<Position>13.1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack id="102" approved="2009-04-28T00:00:00" desc="FIA Post-Trade Margin Requirements" tempIntermediatePath="../EP101/">
+		<Categories>
+			<Inserts>
+				<Categories Category="MarginRequirementManagement">
+					<FIXMLFileName>marginrequirement</FIXMLFileName>
+					<NotReqXML>0</NotReqXML>
+					<GenerateImplFile>1</GenerateImplFile>
+					<ComponentType>Message</ComponentType>
+					<Section>posttrade</Section>
+					<Volume>5</Volume>
+					<IncludeFile>components</IncludeFile>
+				</Categories>
+			</Inserts>
+		</Categories>
+		<Abbreviations>
+			<Inserts>
+				<Abbreviations>
+					<Abbreviation>Clss</Abbreviation>
+					<Term>Class</Term>
+				</Abbreviations>
+				<Abbreviations>
+					<Abbreviation>Reqmt</Abbreviation>
+					<Term>Requirement</Term>
+				</Abbreviations>
+			</Inserts>
+		</Abbreviations>
+		<Fields>
+			<Deprecations>
+				<Fields Tag="727"/>
+			</Deprecations>
+			<Inserts>
+				<Fields Tag="1635">
+					<FieldName>MarginReqmtInqID</FieldName>
+					<Type>String</Type>
+					<Desc>Margin Requirement Inquiry Identifier</Desc>
+					<AbbrName>ID</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1636">
+					<FieldName>NoMarginReqmtInqQualifier</FieldName>
+					<Type>NumInGroup</Type>
+					<Desc>Number of qualifier entries</Desc>
+					<NotReqXML>1</NotReqXML>
+				</Fields>
+				<Fields Tag="1637">
+					<FieldName>MarginReqmtInqQualifier</FieldName>
+					<Type>int</Type>
+					<Desc>Qualifier for Margin Requirement Inquiry to identify a specific report</Desc>
+					<AbbrName>Qual</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1638">
+					<FieldName>MarginReqmtRptType</FieldName>
+					<Type>int</Type>
+					<Desc>Type of Margin Requirement Report</Desc>
+					<AbbrName>RptTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1639">
+					<FieldName>MarginClass</FieldName>
+					<Type>String</Type>
+					<Desc>Identifier for group of instruments with similar risk profile</Desc>
+					<AbbrName>Clss</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1640">
+					<FieldName>MarginReqmtInqStatus</FieldName>
+					<Type>int</Type>
+					<Desc>Status of Margin Requirement Inquiry</Desc>
+					<AbbrName>Stat</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<UsesEnumsFromTag>945</UsesEnumsFromTag>
+				</Fields>
+				<Fields Tag="1641">
+					<FieldName>MarginReqmtInqResult</FieldName>
+					<Type>int</Type>
+					<Desc>Result returned in response to Margin Requirement Inquiry</Desc>
+					<AbbrName>Rslt</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<UnionDataType>Reserved100Plus</UnionDataType>
+				</Fields>
+				<Fields Tag="1642">
+					<FieldName>MarginReqmtRptID</FieldName>
+					<Type>String</Type>
+					<Desc>Margin Requirement Report Identifier</Desc>
+					<AbbrName>RptID</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1643">
+					<FieldName>NoMarginAmt</FieldName>
+					<Type>NumInGroup</Type>
+					<Desc>Number of margin requirement amounts</Desc>
+					<NotReqXML>1</NotReqXML>
+				</Fields>
+				<Fields Tag="1644">
+					<FieldName>MarginAmtType</FieldName>
+					<Type>int</Type>
+					<Desc>Type of margin requirement</Desc>
+					<AbbrName>AmtTyp</AbbrName>
+					<NotReqXML>0</NotReqXML>
+					<UnionDataType>Reserved100Plus</UnionDataType>
+				</Fields>
+				<Fields Tag="1645">
+					<FieldName>MarginAmt</FieldName>
+					<Type>Amt</Type>
+					<Desc>Amount of margin requirement</Desc>
+					<AbbrName>Amt</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1646">
+					<FieldName>MarginAmtCcy</FieldName>
+					<Type>Currency</Type>
+					<Desc>Currency of margin requirement</Desc>
+					<AbbrName>Ccy</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Inserts>
+				<Enums Enum="0" Tag="1637">
+					<Sort>0</Sort>
+					<Description>Summary</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1637">
+					<Sort>1</Sort>
+					<Description>Detail</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1637">
+					<Sort>2</Sort>
+					<Description>Excess/Deficit</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1637">
+					<Sort>3</Sort>
+					<Description>Net Position</Description>
+				</Enums>
+				<Enums Enum="0" Tag="1638">
+					<Sort>0</Sort>
+					<Description>Summary</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1638">
+					<Sort>1</Sort>
+					<Description>Detail</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1638">
+					<Sort>2</Sort>
+					<Description>Excess/Deficit</Description>
+				</Enums>
+				<Enums Enum="0" Tag="1641">
+					<Sort>0</Sort>
+					<Description>Successful (default)</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1641">
+					<Sort>1</Sort>
+					<Description>Invalid or unknown instrument</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1641">
+					<Sort>2</Sort>
+					<Description>Invalid or unknown margin class</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1641">
+					<Sort>3</Sort>
+					<Description>Invalid Parties</Description>
+				</Enums>
+				<Enums Enum="4" Tag="1641">
+					<Sort>4</Sort>
+					<Description>Invalid Transport Type requested</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1641">
+					<Sort>5</Sort>
+					<Description>Invalid Destination requested</Description>
+				</Enums>
+				<Enums Enum="6" Tag="1641">
+					<Sort>6</Sort>
+					<Description>No margin requirement found</Description>
+				</Enums>
+				<Enums Enum="7" Tag="1641">
+					<Sort>7</Sort>
+					<Description>Margin requirement inquiry qualifier not supported</Description>
+				</Enums>
+				<Enums Enum="8" Tag="1641">
+					<Sort>8</Sort>
+					<Description>Unauthorized for margin requirement inquiry</Description>
+				</Enums>
+				<Enums Enum="99" Tag="1641">
+					<Sort>99</Sort>
+					<Description>Other (further information in Text (58) field)</Description>
+				</Enums>
+				<Enums Enum="1" Tag="1644">
+					<Sort>1</Sort>
+					<Description>Additional Margin</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1644">
+					<Sort>2</Sort>
+					<Description>Adjusted Margin</Description>
+				</Enums>
+				<Enums Enum="3" Tag="1644">
+					<Sort>3</Sort>
+					<Description>Unadjusted Margin</Description>
+				</Enums>
+				<Enums Enum="4" Tag="1644">
+					<Sort>4</Sort>
+					<Description>Binary Add-On Amount</Description>
+				</Enums>
+				<Enums Enum="5" Tag="1644">
+					<Sort>5</Sort>
+					<Description>Cash Balance Amount</Description>
+				</Enums>
+				<Enums Enum="6" Tag="1644">
+					<Sort>6</Sort>
+					<Description>Concentration Margin</Description>
+				</Enums>
+				<Enums Enum="7" Tag="1644">
+					<Sort>7</Sort>
+					<Description>Core Margin</Description>
+				</Enums>
+				<Enums Enum="8" Tag="1644">
+					<Sort>8</Sort>
+					<Description>Delivery Margin</Description>
+				</Enums>
+				<Enums Enum="9" Tag="1644">
+					<Sort>9</Sort>
+					<Description>Discretionary Margin</Description>
+				</Enums>
+				<Enums Enum="10" Tag="1644">
+					<Sort>10</Sort>
+					<Description>Futures Spread Margin</Description>
+				</Enums>
+				<Enums Enum="11" Tag="1644">
+					<Sort>11</Sort>
+					<Description>Initial Margin</Description>
+				</Enums>
+				<Enums Enum="12" Tag="1644">
+					<Sort>12</Sort>
+					<Description>Liquidating Margin</Description>
+				</Enums>
+				<Enums Enum="13" Tag="1644">
+					<Sort>13</Sort>
+					<Description>Margin Call Amount</Description>
+				</Enums>
+				<Enums Enum="14" Tag="1644">
+					<Sort>14</Sort>
+					<Description>Margin Deficit Amount (Shortfall)</Description>
+				</Enums>
+				<Enums Enum="15" Tag="1644">
+					<Sort>15</Sort>
+					<Description>Margin Excess Amount (Surplus)</Description>
+				</Enums>
+				<Enums Enum="16" Tag="1644">
+					<Sort>16</Sort>
+					<Description>Option Premium Amount</Description>
+				</Enums>
+				<Enums Enum="17" Tag="1644">
+					<Sort>17</Sort>
+					<Description>Premium Margin</Description>
+				</Enums>
+				<Enums Enum="18" Tag="1644">
+					<Sort>18</Sort>
+					<Description>Reserve Margin</Description>
+				</Enums>
+				<Enums Enum="19" Tag="1644">
+					<Sort>19</Sort>
+					<Description>Security Collateral Amount</Description>
+				</Enums>
+				<Enums Enum="20" Tag="1644">
+					<Sort>20</Sort>
+					<Description>Stress Test Add-On Amount</Description>
+				</Enums>
+				<Enums Enum="21" Tag="1644">
+					<Sort>21</Sort>
+					<Description>Super Margin</Description>
+				</Enums>
+				<Enums Enum="22" Tag="1644">
+					<Sort>22</Sort>
+					<Description>Total Margin</Description>
+				</Enums>
+				<Enums Enum="23" Tag="1644">
+					<Sort>23</Sort>
+					<Description>Variation Margin</Description>
+				</Enums>
+				<Enums Enum="24" Tag="1644">
+					<Sort>24</Sort>
+					<Description>Secondary Variation Margin</Description>
+				</Enums>
+				<Enums Enum="NET" Tag="703">
+					<Sort>27</Sort>
+					<Description>Net Qty</Description>
+				</Enums>
+				<Enums Enum="GRS" Tag="703">
+					<Sort>28</Sort>
+					<Description>Gross Qty</Description>
+				</Enums>
+				<Enums Enum="7" Tag="724">
+					<Sort>8</Sort>
+					<Description>Net Position</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<MsgType>
+			<Inserts>
+				<MsgType MsgType="CH">
+					<MessageName>MarginRequirementInquiry</MessageName>
+					<ComponentType>Message</ComponentType>
+					<Category>MarginRequirementManagement</Category>
+					<MsgID>119</MsgID>
+					<Section>Post Trade</Section>
+					<AbbrName>MgnReqmtInq</AbbrName>
+					<Volume>Volume5</Volume>
+					<NotReqXML>0</NotReqXML>
+				</MsgType>
+				<MsgType MsgType="CI">
+					<MessageName>MarginRequirementInquiryAck</MessageName>
+					<ComponentType>Message</ComponentType>
+					<Category>MarginRequirementManagement</Category>
+					<MsgID>120</MsgID>
+					<Section>Post Trade</Section>
+					<AbbrName>MgnReqmtInqAck</AbbrName>
+					<Volume>Volume5</Volume>
+					<NotReqXML>0</NotReqXML>
+				</MsgType>
+				<MsgType MsgType="CJ">
+					<MessageName>MarginRequirementReport</MessageName>
+					<ComponentType>Message</ComponentType>
+					<Category>MarginRequirementManagement</Category>
+					<MsgID>121</MsgID>
+					<Section>Post Trade</Section>
+					<AbbrName>MgnReqmtRpt</AbbrName>
+					<Volume>Volume5</Volume>
+					<NotReqXML>0</NotReqXML>
+				</MsgType>
+			</Inserts>
+		</MsgType>
+		<Components>
+			<Inserts>
+				<Components MsgID="2176">
+					<ComponentName>MarginReqmtInqQualGrp</ComponentName>
+					<ComponentType>BlockRepeating</ComponentType>
+					<Category>MarginRequirementManagement</Category>
+					<AbbrName>MgnReqmtInqQual</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Components>
+				<Components MsgID="2177">
+					<ComponentName>MarginAmountData</ComponentName>
+					<ComponentType>BlockRepeating</ComponentType>
+					<Category>MarginRequirementManagement</Category>
+					<AbbrName>MgnAmtData</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Components>
+			</Inserts>
+		</Components>
+		<MsgContents>
+			<Updates>
+				<MsgContents MsgID="75" TagText="724">
+					<Description>Will be 7=Net Position if the report contains net position information for margin requirements.</Description>
+				</MsgContents>
+				<MsgContents MsgID="75" TagText="728">
+					<Position>6.3</Position>
+				</MsgContents>
+			</Updates>
+			<Deprecations>
+				<MsgContents MsgID="74" TagText="727"/>
+				<MsgContents MsgID="75" TagText="727"/>
+			</Deprecations>			<Inserts>
+				<MsgContents MsgID="2176" TagText="1636">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>0</Reqd>
+					<Description>Number of qualifier entries</Description>
+				</MsgContents>
+				<MsgContents MsgID="2176" TagText="1637">
+					<Indent>1</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="2177" TagText="1643">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>0</Reqd>
+					<Description>Number of margin amount entries</Description>
+				</MsgContents>
+				<MsgContents MsgID="2177" TagText="1645">
+					<Indent>1</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="2177" TagText="1644">
+					<Indent>1</Indent>
+					<Position>3</Position>
+					<Reqd>0</Reqd>
+					<Description>Total margin requirement if not provided</Description>
+				</MsgContents>
+				<MsgContents MsgID="2177" TagText="1646">
+					<Indent>1</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+					<Description>Base currency if not provided</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="StandardHeader">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>1</Reqd>
+					<Description>MsgType = CH</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="1635">
+					<Indent>0</Indent>
+					<Position>2</Position>
+					<Reqd>1</Reqd>
+					<Description>Unique identifier for this message</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="MarginReqmtInqQualGrp">
+					<Indent>0</Indent>
+					<Position>3</Position>
+					<Reqd>1</Reqd>
+					<Description>Type of margin requirement inquiry </Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="263">
+					<Indent>0</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+					<Description>Used to subscribe / unsubscribe for margin requirement reports. If the field is absent, the default will be snapshot request only - no subscription.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="725">
+					<Indent>0</Indent>
+					<Position>5</Position>
+					<Reqd>0</Reqd>
+					<Description>Ability to specify whether the response to the request should be delivered inband or via pre-arranged out-of-band transport.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="726">
+					<Indent>0</Indent>
+					<Position>6</Position>
+					<Reqd>0</Reqd>
+					<Description>URI destination name. Used if ResponseTransportType is out-of-band.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="Parties">
+					<Indent>0</Indent>
+					<Position>7</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="715">
+					<Indent>0</Indent>
+					<Position>8</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the date for which the margin is to be calculated</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="716">
+					<Indent>0</Indent>
+					<Position>9</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the settlement session for which the margin is to be calculated – End Of Day or Intraday</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="717">
+					<Indent>0</Indent>
+					<Position>10</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="1639">
+					<Indent>0</Indent>
+					<Position>11</Position>
+					<Reqd>0</Reqd>
+					<Description>Used to identify a group of instruments with similar risk profile.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="Instrument">
+					<Indent>0</Indent>
+					<Position>12</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="60">
+					<Indent>0</Indent>
+					<Position>13</Position>
+					<Reqd>0</Reqd>
+					<Description>Represents the time the inquiry was submitted</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="58">
+					<Indent>0</Indent>
+					<Position>14</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="354">
+					<Indent>0</Indent>
+					<Position>15</Position>
+					<Reqd>0</Reqd>
+					<Description>Must be set if EncodedText field is specified and must immediately precede it.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="355">
+					<Indent>0</Indent>
+					<Position>16</Position>
+					<Reqd>0</Reqd>
+					<Description>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Description>
+				</MsgContents>
+				<MsgContents MsgID="119" TagText="StandardTrailer">
+					<Indent>0</Indent>
+					<Position>17</Position>
+					<Reqd>1</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="StandardHeader">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>1</Reqd>
+					<Description>MsgType = CI</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="1635">
+					<Indent>0</Indent>
+					<Position>2</Position>
+					<Reqd>1</Reqd>
+					<Description>Unique identifier for this message</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="MarginReqmtInqQualGrp">
+					<Indent>0</Indent>
+					<Position>3</Position>
+					<Reqd>1</Reqd>
+					<Description>Type of margin requirement inquiry</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="1640">
+					<Indent>0</Indent>
+					<Position>4</Position>
+					<Reqd>1</Reqd>
+					<Description>Status of the Margin Requirement Inquiry referenced by MarginReqmtInqID</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="1641">
+					<Indent>0</Indent>
+					<Position>5</Position>
+					<Reqd>0</Reqd>
+					<Description>Result of the Margin Requirement Inquiry referenced by MarginReqmtInqID – specifies any errors or warnings</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="911">
+					<Indent>0</Indent>
+					<Position>6</Position>
+					<Reqd>0</Reqd>
+					<Description>Total number of reports generated in response to this inquiry</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="263">
+					<Indent>0</Indent>
+					<Position>7</Position>
+					<Reqd>0</Reqd>
+					<Description>Used to subscribe / unsubscribe for margin requirement reports. If the field is absent, the default will be snapshot request only - no subscription.</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="725">
+					<Indent>0</Indent>
+					<Position>8</Position>
+					<Reqd>0</Reqd>
+					<Description>Ability to specify whether the response to the request should be delivered inband or via pre-arranged out-of-band transport. </Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="726">
+					<Indent>0</Indent>
+					<Position>9</Position>
+					<Reqd>0</Reqd>
+					<Description>URI destination name. Used if ResponseTransportType is out-of-band.</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="Parties">
+					<Indent>0</Indent>
+					<Position>10</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="715">
+					<Indent>0</Indent>
+					<Position>11</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the date for which the margin is to be calculated</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="716">
+					<Indent>0</Indent>
+					<Position>12</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the settlement session for which the margin is to be calculated – End Of Day or Intraday</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="717">
+					<Indent>0</Indent>
+					<Position>13</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="1639">
+					<Indent>0</Indent>
+					<Position>14</Position>
+					<Reqd>0</Reqd>
+					<Description>Used to identify a group of instruments with similar risk profile.</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="Instrument">
+					<Indent>0</Indent>
+					<Position>15</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="60">
+					<Indent>0</Indent>
+					<Position>16</Position>
+					<Reqd>0</Reqd>
+					<Description>Represents the time this message was generated</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="58">
+					<Indent>0</Indent>
+					<Position>17</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="354">
+					<Indent>0</Indent>
+					<Position>18</Position>
+					<Reqd>0</Reqd>
+					<Description>Must be set if EncodedText field is specified and must immediately precede it.</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="355">
+					<Indent>0</Indent>
+					<Position>19</Position>
+					<Reqd>0</Reqd>
+					<Description>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Description>
+				</MsgContents>
+				<MsgContents MsgID="120" TagText="StandardTrailer">
+					<Indent>0</Indent>
+					<Position>20</Position>
+					<Reqd>1</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="StandardHeader">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>1</Reqd>
+					<Description>MsgType = CJ</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="ApplicationSequenceControl">
+					<Indent>0</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="1642">
+					<Indent>0</Indent>
+					<Position>3</Position>
+					<Reqd>1</Reqd>
+					<Description>Unique identifier for this margin requirement report</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="1635">
+					<Indent>0</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+					<Description>Unique identifier for the  inquiry associated with this report. This field should not be provided if the report was sent unsolicited.</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="1638">
+					<Indent>0</Indent>
+					<Position>5</Position>
+					<Reqd>1</Reqd>
+					<Description>Type of report provided</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="911">
+					<Indent>0</Indent>
+					<Position>6</Position>
+					<Reqd>0</Reqd>
+					<Description>Total number of reports generated in response to inquiry referenced by MarginReqmtInqID</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="912">
+					<Indent>0</Indent>
+					<Position>7</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="325">
+					<Indent>0</Indent>
+					<Position>8</Position>
+					<Reqd>0</Reqd>
+					<Description>Set to &apos;Y&apos; if message is sent as a result of a subscription request or out of band configuration as opposed to a Margin Requirement Inquiry.</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="Parties">
+					<Indent>0</Indent>
+					<Position>9</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="715">
+					<Indent>0</Indent>
+					<Position>10</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the date for which the margin is to be calculated</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="716">
+					<Indent>0</Indent>
+					<Position>11</Position>
+					<Reqd>0</Reqd>
+					<Description>Indicates the settlement session for which the margin is to be calculated – End Of Day or Intraday</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="717">
+					<Indent>0</Indent>
+					<Position>12</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="1639">
+					<Indent>0</Indent>
+					<Position>13</Position>
+					<Reqd>0</Reqd>
+					<Description>Used to identify a group of instruments with similar risk profile.</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="15">
+					<Indent>0</Indent>
+					<Position>14</Position>
+					<Reqd>0</Reqd>
+					<Description>Base currency of the margin requirement</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="Instrument">
+					<Indent>0</Indent>
+					<Position>15</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="MarginAmountData">
+					<Indent>0</Indent>
+					<Position>16</Position>
+					<Reqd>1</Reqd>
+					<Description>Margin requirement amounts</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="60">
+					<Indent>0</Indent>
+					<Position>17</Position>
+					<Reqd>0</Reqd>
+					<Description>Represents the time this message was generated</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="58">
+					<Indent>0</Indent>
+					<Position>18</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="354">
+					<Indent>0</Indent>
+					<Position>19</Position>
+					<Reqd>0</Reqd>
+					<Description>Must be set if EncodedText field is specified and must immediately precede it.</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="355">
+					<Indent>0</Indent>
+					<Position>20</Position>
+					<Reqd>0</Reqd>
+					<Description>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Description>
+				</MsgContents>
+				<MsgContents MsgID="121" TagText="StandardTrailer">
+					<Indent>0</Indent>
+					<Position>21</Position>
+					<Reqd>1</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="75" TagText="1635">
+					<Indent>0</Indent>
+					<Position>4.1</Position>
+					<Reqd>0</Reqd>
+					<Description>Unique identifier for the inquiry associated with this report. This field should not be provided if the report was sent unsolicited.</Description>
+				</MsgContents>
+				<MsgContents MsgID="75" TagText="911">
+					<Indent>0</Indent>
+					<Position>6.1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="75" TagText="912">
+					<Indent>0</Indent>
+					<Position>6.2</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="74" TagText="911">
+					<Indent>0</Indent>
+					<Position>4.1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

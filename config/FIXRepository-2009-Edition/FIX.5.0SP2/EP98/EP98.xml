@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack id="98" approved="2009-04-27T00:00:00" desc="FillsGrp Yield Extension" tempIntermediatePath="../Base/">
+		<Fields>
+			<Inserts>
+				<Fields Tag="1622">
+					<FieldName>FillYieldType</FieldName>
+					<Type>String</Type>
+					<Desc>Yield Type, using same values as YieldType (235)</Desc>
+					<AbbrName>Typ</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1623">
+					<FieldName>FillYield</FieldName>
+					<Type>Percentage</Type>
+					<Desc>Yield Percentage, using same values as Yield (236)</Desc>
+					<AbbrName>Yld</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="2112" TagText="1622">
+					<Indent>1</Indent>
+					<Position>1.32</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="2112" TagText="1623">
+					<Indent>1</Indent>
+					<Position>1.33</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

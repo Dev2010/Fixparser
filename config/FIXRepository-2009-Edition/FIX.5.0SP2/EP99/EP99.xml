@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack id="99" approved="2009-04-27T00:00:00" desc="Matching Instructions Extension" tempIntermediatePath="../EP98/">
+		<Fields>
+			<Inserts>
+				<Fields Tag="1624">
+					<FieldName>NoMatchInst</FieldName>
+					<Type>NumInGroup</Type>
+					<Desc>Number of Instructions in the &lt;MatchingInstructions&gt; repeating group.</Desc>
+					<NotReqXML>1</NotReqXML>
+				</Fields>
+				<Fields Tag="1625">
+					<FieldName>MatchInst</FieldName>
+					<Type>int</Type>
+					<Desc>Matching Instruction for the order.</Desc>
+					<AbbrName>Inst</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1626">
+					<FieldName>MatchAttribTagID</FieldName>
+					<Type>TagNum</Type>
+					<Desc>Existing FIX field to be applied as a Matching Criteria to the Instruction, bilaterally agreed between parties.</Desc>
+					<AbbrName>ID</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+				<Fields Tag="1627">
+					<FieldName>MatchAttribValue</FieldName>
+					<Type>String</Type>
+					<Desc>Enumeration value of the MatchAttribField to be applied as a Matching Criteria to the Instruction.</Desc>
+					<AbbrName>Valu</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Fields>
+			</Inserts>
+		</Fields>
+		<Enums>
+			<Inserts>
+				<Enums Enum="1" Tag="1625">
+					<Sort>1</Sort>
+					<Description>Match</Description>
+				</Enums>
+				<Enums Enum="2" Tag="1625">
+					<Sort>2</Sort>
+					<Description>Do Not Match</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<Components>
+			<Inserts>
+				<Components MsgID="1064">
+					<ComponentName>MatchingInstructions</ComponentName>
+					<ComponentType>BlockRepeating</ComponentType>
+					<Category>Common</Category>
+					<AbbrName>MtchgInst</AbbrName>
+					<NotReqXML>0</NotReqXML>
+				</Components>
+			</Inserts>
+		</Components>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="1064" TagText="1624">
+					<Indent>0</Indent>
+					<Position>1</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="1064" TagText="1625">
+					<Indent>1</Indent>
+					<Position>2</Position>
+					<Reqd>0</Reqd>
+					<Description>Required if NoMatchInst &gt; 0.</Description>
+				</MsgContents>
+				<MsgContents MsgID="1064" TagText="1301">
+					<Indent>1</Indent>
+					<Position>3</Position>
+					<Reqd>0</Reqd>
+					<Description/>
+				</MsgContents>
+				<MsgContents MsgID="1064" TagText="1626">
+					<Indent>1</Indent>
+					<Position>4</Position>
+					<Reqd>0</Reqd>
+					<Description>Required if NoMatchInst &gt; 0.</Description>
+				</MsgContents>
+				<MsgContents MsgID="1064" TagText="1627">
+					<Indent>1</Indent>
+					<Position>5</Position>
+					<Reqd>0</Reqd>
+					<Description>Required if NoMatchInst &gt; 0.</Description>
+				</MsgContents>
+				<MsgContents MsgID="14" TagText="MatchingInstructions">
+					<Indent>0</Indent>
+					<Position>28.21</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="17" TagText="MatchingInstructions">
+					<Indent>0</Indent>
+					<Position>32.21</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="61" TagText="MatchingInstructions">
+					<Indent>0</Indent>
+					<Position>28.21</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="62" TagText="MatchingInstructions">
+					<Indent>0</Indent>
+					<Position>31.21</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="9" TagText="MatchingInstructions">
+					<Indent>0</Indent>
+					<Position>119.21</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

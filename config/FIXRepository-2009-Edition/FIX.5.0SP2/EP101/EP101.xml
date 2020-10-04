@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps ..\..\tools\EP\EP.sps?>
+<fixRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.fixprotocol.org/extensionpack ..\..\schema\extensionpack.xsd" xmlns="http://www.fixprotocol.org/extensionpack" version="FIX.5.0SP2">
+	<extensionPack id="101" approved="2009-04-28T00:00:00" desc="Canadian Market Regulation Feed" tempIntermediatePath="../EP100/">
+		<Enums>
+			<Inserts>
+				<Enums Enum="u" Tag="18">
+					<Sort>57</Sort>
+					<Description>Minimum Guaranteed Fill Eligible</Description>
+				</Enums>
+				<Enums Enum="v" Tag="18">
+					<Sort>58</Sort>
+					<Description>Bypass Non-Displayed Liquidity</Description>
+				</Enums>
+				<Enums Enum="14" Tag="378">
+					<Sort>14</Sort>
+					<Description>Assign Time Priority</Description>
+				</Enums>
+				<Enums Enum="G" Tag="529">
+					<Sort>16</Sort>
+					<Description>Insider Account</Description>
+				</Enums>
+				<Enums Enum="H" Tag="529">
+					<Sort>17</Sort>
+					<Description>Significant Shareholder</Description>
+				</Enums>
+				<Enums Enum="I" Tag="529">
+					<Sort>18</Sort>
+					<Description>Normal Course Issuer Bid (NCIB)</Description>
+				</Enums>
+				<Enums Enum="5" Tag="549">
+					<Sort>5</Sort>
+					<Description>Basis Cross - A trade where a basket of securities or an index participation unit is transacted at prices achieved through the execution of related exchange-traded derivative instruments in an amount that will correspond to an equivalent market exposure.</Description>
+				</Enums>
+				<Enums Enum="6" Tag="549">
+					<Sort>6</Sort>
+					<Description>Contingent Cross - A cross resulting from a paired order placed by a Participant to execute an order on a security that is contingent on the execution of a second order for an offsetting volume of a related security.</Description>
+				</Enums>
+				<Enums Enum="7" Tag="549">
+					<Sort>7</Sort>
+					<Description>VWAP Cross - A cross for the purpose of executing a trade at a volume-weighted average price of a security traded for a continuous period on or during a trading day.</Description>
+				</Enums>
+				<Enums Enum="8" Tag="549">
+					<Sort>8</Sort>
+					<Description>STS Cross - A closing price cross resulting from an order placed by a Participant for execution in a Special Trading Session at the last sale price.</Description>
+				</Enums>
+				<Enums Enum="9" Tag="581">
+					<Sort>8</Sort>
+					<Description>Equities specialist</Description>
+				</Enums>
+				<Enums Enum="10" Tag="581">
+					<Sort>9</Sort>
+					<Description>Options market maker</Description>
+				</Enums>
+				<Enums Enum="11" Tag="581">
+					<Sort>10</Sort>
+					<Description>Options firm account</Description>
+				</Enums>
+				<Enums Enum="8" Tag="770">
+					<Sort>8</Sort>
+					<Description>Time Priority</Description>
+				</Enums>
+				<Enums Enum="30" Tag="871">
+					<Sort>31</Sort>
+					<Description>Instrument is eligible to accept anonymous orders</Description>
+				</Enums>
+				<Enums Enum="31" Tag="871">
+					<Sort>32</Sort>
+					<Description>Minimum Guaranteed Fill Volume</Description>
+				</Enums>
+				<Enums Enum="40" Tag="829">
+					<Sort>40</Sort>
+					<Description>Wash Trade</Description>
+				</Enums>
+				<Enums Enum="A" Tag="1115">
+					<Sort>10</Sort>
+					<Description>Internal Cross Order</Description>
+				</Enums>
+			</Inserts>
+		</Enums>
+		<MsgContents>
+			<Inserts>
+				<MsgContents MsgID="64" TagText="549">
+					<Indent>0</Indent>
+					<Position>25.001</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="77" TagText="549">
+					<Indent>0</Indent>
+					<Position>19.42</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+				<MsgContents MsgID="2143" TagText="1091">
+					<Indent>0</Indent>
+					<Position>8.5</Position>
+					<Reqd>0</Reqd>
+				</MsgContents>
+			</Inserts>
+		</MsgContents>
+	</extensionPack>
+</fixRepository>

@@ -1,0 +1,161 @@
+body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    /*font-size: 1.2em;*/
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+br {
+   display: block;
+   margin: 0px 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/* Custom
+----------------------------------------------------------*/
+.input-text-area-class {
+    white-space: nowrap;
+    overflow: auto;
+    border: 1px;
+    border-style: solid;
+    border-color: #999999;
+    padding: 2px;
+    padding-right: 0px;
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    resize: none;
+}
+
+.submit-button-class {
+    margin: 5px;
+}
+
+.input-area-class {
+    text-align: center;
+}
+
+.header-class {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    font-weight: 500;
+    font-size: 1.5em;
+    text-align: center;
+    color: #CC6D00; /*darkred 8B0000*/
+}
+
+.fix-cleaned-up-message {
+    font-size: .85em;
+    white-space: nowrap;
+}
+
+.max-length-css {
+    font-weight: lighter;
+    text-align: left;
+    color: #808080;
+}
+
+.disclaimer-class
+{
+    text-align: left;
+    margin: 0px;
+    padding:0px;
+}
+
+
+.right-element-class
+{
+   right: 0;
+   text-align: right; /* depends on element width */
+   width: 150px;
+}
+
+.left-element-class
+{
+   text-align: left; /* depends on element width */
+    width: 150px;
+}
+
+.center-element-class
+{
+   text-align: center; /* depends on element width */
+}
+
+.header-table-class {
+    margin-bottom: 15px;   
+}
+
+.header-class a {
+    color: #CC6D00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*
+body table.header-table-class tbody tr td.center-element-class div.header-class a {
+    color: green;
+    text-decoration: none;
+}
+*/
+
+.body-content-css {
+    margin-left: 40px;
+    margin-right: 40px;
+}

@@ -1,0 +1,83 @@
+﻿@model fix_analyzer.Models.FixMessageLoad
+
+@{
+    ViewBag.Title = "Fix Message Parser";
+}
+
+    <div id="input-area" class="input-area-class">
+        @using (Html.BeginForm(actionName: "Parse", controllerName: "Home", method: FormMethod.Post))
+        {
+            @Html.TextArea(name: "FIXMessages", value: Model.FIXMessages, htmlAttributes: new { @class = "input-text-area-class", maxlength = 1500, wrap = "off" });
+            <table class="header-table-class" width="100%">
+                <tr>
+                    <td class="left-element-class">
+                        <div>@Html.ActionLink("sample fix message", "Sample", "Home", new { Area = "" }, new { })</div>
+                    </td>
+                    <td class="center-element-class">
+                        <input id="submit" type="submit" value="Parse" class="submit-button-class" />            
+                    </td>
+                    <td class="right-element-class">
+                        <div></div>
+                    </td>
+                </tr>
+            </table>
+            
+        }
+    </div>
+    <div id="output-area" class="output-area-class">
+        @foreach(var fixParsedMessage in Model.FixMessageParsers)
+        {
+            <div class="fix-cleaned-up-message">@fixParsedMessage.FIXMessage
+                @*@if(fixParsedMessage.Error)
+                {
+                    foreach(var error in fixParsedMessage.ErrorList)
+                    {
+                        <ul>@error</ul>
+                    }
+                }*@
+            </div>
+            if (fixParsedMessage.FixFields.Count > 0)
+            {
+                <table id="rounded-corner-wide">
+                    <caption>
+                        @if (@fixParsedMessage.MessageType != null)
+                        {
+                            if (!String.IsNullOrWhiteSpace(@fixParsedMessage.MessageType.ValueDescription))
+                            {
+                                @fixParsedMessage.MessageType.ValueDescription
+                            }
+                        }
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Fix Tag</th>
+                            <th>Tag Name</th>
+                            <th>Tag Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fixField in fixParsedMessage.FixFields)
+                        {
+                            <tr>
+                                <td>
+                                    @fixField.Tag
+                                </td>
+                                <td>
+                                    @fixField.FieldName
+                                </td>
+                                <td>
+                                    @fixField.Value
+                                </td>
+                                <td>
+                                    @fixField.ValueDescription
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+<div id="outputarea"></div>
+<div id="trailer"></div>
