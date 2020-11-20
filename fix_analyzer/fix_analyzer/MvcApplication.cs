@@ -34,7 +34,7 @@
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            //BundleTable.Bundles.RegisterTemplateBundles();
+            BundleTable.Bundles.RegisterTemplateBundles();
             new WebFixDataDictionary().GetFixDataDictionary();
         }
 
@@ -47,7 +47,7 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             string name = "DefaultApi";
-            //routes.MapHttpRoute(name, "api/{controller}/{id}", new { id = RouteParameter.Optional });
+            routes.MapHttpRoute(name, "api/{controller}/{id}", new { id = RouteParameter.Optional });
             string str3 = "Default";
             routes.MapRoute(str3, "{controller}/{action}/{id}", new { 
                 controller = "Home",
